@@ -3,7 +3,6 @@
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const Signin = () => {
   const [loading, isLoading] = useState(false);
@@ -13,7 +12,6 @@ const Signin = () => {
     password: ""
   });
   
-  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -28,13 +26,12 @@ const Signin = () => {
     isLoading(true);
 
     setTimeout(() => {
-      toast.success("Successfully Signed In");
+      toast.error("Failed To Sign In");
       isLoading(false);
       setFormData({
         email: "",
         password: ""
       });
-      router.push("/");
     }, 2000)
   }
 
@@ -92,9 +89,6 @@ const Signin = () => {
                 </div>
               </form>
 
-              <span className="mb-2 inline-block cursor-pointer text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary">
-                Forget Password?
-              </span>
               <p className="text-body-secondary text-base">
                 Not a member yet?{" "}
                 <Link href="/signup" className="text-primary hover:underline">

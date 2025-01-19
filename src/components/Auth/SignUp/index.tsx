@@ -3,14 +3,18 @@
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
   const [loading, isLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: ""
   });
+
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -26,12 +30,13 @@ const SignUp = () => {
 
     setTimeout(() => {
       isLoading(false);
-      toast.error("Failed To Register");
+      toast.success("Successfully Signed Up");
       setFormData({
         name: "",
         email: "",
         password: ""
       });
+      router.push("/");
     }, 2000)
   }
 
