@@ -1,16 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import SocialSignIn from "../SocialSignIn";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Signin = () => {
   const [loading, isLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
+  
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -25,12 +28,13 @@ const Signin = () => {
     isLoading(true);
 
     setTimeout(() => {
+      toast.success("Successfully Signed In");
       isLoading(false);
-      toast.error("Failed To Login");
       setFormData({
         email: "",
         password: ""
       });
+      router.push("/");
     }, 2000)
   }
 
@@ -46,16 +50,6 @@ const Signin = () => {
               <div className="mb-10 text-center font-semibold text-3xl">
                 MeetWise
               </div>
-
-              {/* Social Sign-in Buttons Placeholder */}
-              <SocialSignIn />
-
-              <span className="z-1 relative my-8 block text-center">
-                <span className="-z-1 absolute left-0 top-1/2 block h-px w-full bg-stroke dark:bg-dark-3"></span>
-                <span className="text-body-secondary relative z-10 inline-block bg-white px-3 text-base dark:bg-dark-2">
-                  OR
-                </span>
-              </span>
 
               {/* Login Form */}
               <form onSubmit={handleSignIn}>

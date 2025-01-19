@@ -1,6 +1,7 @@
 import React from "react";
 import OfferList from "./OfferList";
 import { Price } from "@/types/price";
+import Link from "next/link";
 
 const PricingBox = ({ product }: { product: Price }) => {
 
@@ -42,9 +43,9 @@ const PricingBox = ({ product }: { product: Price }) => {
           </div>
         </div>
         <div className="w-full">
-          <button className="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition duration-300 hover:bg-primary/90">
+          <Link href={'/signup'} className="inline-block rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white transition duration-300 hover:bg-primary/90">
             Purchase Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

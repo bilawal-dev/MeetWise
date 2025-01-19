@@ -4,7 +4,6 @@ import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function Home() {
       <Hero />
       <Features />
       <CallToAction />
-      <Testimonials />
       <Faq />
       <Contact />
     </main>

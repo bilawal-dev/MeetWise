@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import SocialSignIn from "../SocialSignIn";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 
@@ -39,7 +38,7 @@ const SignUp = () => {
   return (
     <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-[90px]">
       <div className="container">
-        
+
         {/* Toaster For Toast Notifications */}
         <Toaster />
 
@@ -49,16 +48,6 @@ const SignUp = () => {
               <div className="mb-10 text-center font-semibold text-3xl">
                 MeetWise
               </div>
-
-              {/* Social Sign-up Buttons */}
-              <SocialSignIn />
-
-              <span className="z-1 relative my-8 block text-center">
-                <span className="-z-1 absolute left-0 top-1/2 block h-px w-full bg-stroke dark:bg-dark-3"></span>
-                <span className="text-body-secondary relative z-10 inline-block bg-white px-3 text-base dark:bg-dark-2">
-                  OR
-                </span>
-              </span>
 
               {/* Sign-up Form */}
               <form onSubmit={handleSignUp}>
