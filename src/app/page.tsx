@@ -1,18 +1,15 @@
-import About from "@/components/About";
 import CallToAction from "@/components/CallToAction";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import Hero from "@/components/Hero";
-import Pricing from "@/components/Pricing";
-import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "MeetWise",
-  description: "MeetWise",
+  description: "MeetWise - Transforming Your Meetings Into Insights",
 };
 
 export default function Home() {
@@ -22,14 +19,10 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      {/* <About /> */}
       <CallToAction />
-      {/* <Pricing /> */}
       <Testimonials />
       <Faq />
-      {/* <Team /> */}
       <Contact />
-      {/* <Clients /> */}
     </main>
   );
 }
