@@ -1,9 +1,19 @@
+"use client";
+
 import React from "react";
+import toast from "react-hot-toast";
 
 const SocialSignIn = () => {
+
+  function handleSocialSignIn(){
+    toast.loading("Coming Soon", {
+      duration: 1000
+    });
+  }
+
   return (
     <>
-      <button className="flex w-full items-center justify-center gap-2.5 rounded-lg border border-gray-4 p-3.5 text-dark duration-200 ease-in hover:border-gray-5 hover:bg-gray dark:border-dark-3 dark:text-white dark:hover:bg-dark-3" >
+      <button onClick={handleSocialSignIn} className="flex w-full items-center justify-center gap-2.5 rounded-lg border border-gray-4 p-3.5 text-dark duration-200 ease-in hover:border-gray-5 hover:bg-gray dark:border-dark-3 dark:text-white dark:hover:bg-dark-3" >
         <svg
           width="23"
           height="22"
@@ -43,7 +53,7 @@ const SocialSignIn = () => {
         Sign in with Google
       </button>
 
-      <button className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-gray-4 p-3.5 text-dark duration-200 ease-in hover:border-gray-5 hover:bg-gray dark:border-dark-3 dark:text-white dark:hover:bg-dark-3" >
+      <button onClick={handleSocialSignIn} className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-gray-4 p-3.5 text-dark duration-200 ease-in hover:border-gray-5 hover:bg-gray dark:border-dark-3 dark:text-white dark:hover:bg-dark-3" >
         <svg
           width="22"
           height="22"

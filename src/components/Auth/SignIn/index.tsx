@@ -1,10 +1,45 @@
+"use client";
+
 import Link from "next/link";
 import SocialSignIn from "../SocialSignIn";
+import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 const Signin = () => {
+  const [loading, isLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  function handleSignIn(event: React.FormEvent) {
+    event.preventDefault();
+
+    isLoading(true);
+
+    setTimeout(() => {
+      isLoading(false);
+      toast.error("Failed To Login");
+      setFormData({
+        email: "",
+        password: ""
+      });
+    }, 2000)
+  }
+
   return (
     <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-20">
       <div className="container">
+        {/* Toaster For Toast Notifications */}
+        <Toaster />
+
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
@@ -23,11 +58,15 @@ const Signin = () => {
               </span>
 
               {/* Login Form */}
-              <form>
+              <form onSubmit={handleSignIn}>
                 <div className="mb-[22px]">
                   <input
                     type="email"
                     placeholder="Email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
                 </div>
@@ -35,15 +74,26 @@ const Signin = () => {
                   <input
                     type="password"
                     placeholder="Password"
+                    name="password"
+                    required
+                    value={formData.password}
+                    onChange={handleChange}
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
                 </div>
                 <div className="mb-9">
                   <button
-                    type="reset"
+                    type="submit"
                     className="w-full cursor-pointer rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
                   >
-                    Sign In
+                    {loading ? (
+                      <span className="flex justify-center items-center gap-5">
+                        Signing In
+                        <div className="border-2 border-t-2 border-white border-t-blue-500 w-6 h-6 rounded-full animate-spin"></div>
+                      </span>
+                    ) : (
+                      <span>Sign In</span>
+                    )}
                   </button>
                 </div>
               </form>
