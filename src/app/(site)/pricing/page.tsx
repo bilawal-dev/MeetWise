@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Pricing Page",
+    "Pricing Page | MeetWise",
   description: "MeetWise - Transforming Your Meetings Into Insights",
 };
 

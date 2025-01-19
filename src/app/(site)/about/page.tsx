@@ -4,7 +4,7 @@ import Team from "@/components/Team";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us | MeetWise",
   description: "MeetWise - Transforming Your Meetings Into Insights",
 };
 
